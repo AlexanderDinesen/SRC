@@ -27,4 +27,5 @@ function draw() {
 		t = 0
 		print("Reset")
 	}
+	circle(full, 2)
 }
