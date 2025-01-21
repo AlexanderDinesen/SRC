@@ -73,3 +73,9 @@ function setbezier() {
 	circle(e, full, 20)
 }
 //a
+
+
+
+function handwriting() {
+	
+}
