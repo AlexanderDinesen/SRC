@@ -72,4 +72,3 @@ function setbezier() {
 	//circle(e, d, 20)
 	circle(e, full, 20)
 }
-//a
