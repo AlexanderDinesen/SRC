@@ -9,6 +9,7 @@ let p2;
 let p3;
 let p4;
 let t = 0;
+change = 0.005;
 
 function setup() {
 	createCanvas(400, 400)
@@ -20,8 +21,8 @@ function setup() {
 }
 
 function draw() {
-	randombezier();
-	//setbezier();
+	//randombezier();
+	setbezier();
 }
 
 
@@ -60,17 +61,21 @@ function setbezier() {
 	d = lerp(a,b,t)
 	e = lerp(b,c,t)
 	full = lerp(d, e, t)
-	t += 0.02
-	if (t >= 1) {
-		t = 0
-		print("Reset")
+	t += change
+	if(t>=1) {
+		change = 0;
+		t = 1;
 	}
-	//circle(a, b, 20)
-	//circle(b, c, 20)
-	//circle(c, d, 20)
-	//circle(d, e, 20)
+	//if (t >= 1) {
+		//t = 0
+		//print("Reset")
+	//}
+	circle(a, b, 5)
+	//circle(b, c, 5)
+	//circle(c, d, 5)
+	//circle(d, e, 5)
 	//circle(e, d, 20)
-	circle(e, full, 20)
+	//circle(e, full, 20)
 }
 //a
 
