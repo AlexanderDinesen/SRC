@@ -11,6 +11,7 @@ let E = {x: undefined, y: undefined};
 let P = {x: undefined, y: undefined};
 let t=0
 let pd=20
+let goat;
 
 let bezierPoints = [P0,P1,P2,P3,P4,]
 
@@ -22,10 +23,12 @@ function setup() {
 
 function draw() {
   background(220);
+  if (goat == true) {
   for(let t=0; t<1; t+=0.001){
     calcBezier(t);
-    //drawBezier();
+    drawBezier();
   }
+}
   drawPoints()
   supportLines()
   test();
@@ -98,7 +101,11 @@ function test() {
         P3 = {x: mouseX, y: mouseY}
         circle(mouseX, mouseY) 
       }
+      if (keyIsDown(67)) {
+        goat = true;
       }
+      }
+
 
 
 
