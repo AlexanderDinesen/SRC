@@ -12,8 +12,11 @@ let P = {x: undefined, y: undefined};
 let t=0
 let pd=20
 let goat;
+let waittime = false;
+let time = 0;
 
-let bezierPoints = [P0,P1,P2,P3,P4,]
+let bezierPoints = [P0,P1,P2,P3,P4]
+let drawbez = [];
 
 
 
@@ -32,7 +35,10 @@ function draw() {
   drawPoints()
   supportLines()
   test();
+  addpoint();
+  time++
 }
+
 
 function calcBezier(t){
   A.x=lerp(P0.x,P1.x,t)
@@ -47,12 +53,18 @@ function calcBezier(t){
   E.y=lerp(B.y,C.y,t)
   P.x=lerp(D.x,E.x,t)
   P.y=lerp(D.y,E.y,t)
+  //print(t)
+}
+
+function beziezes() { //
+  for (i = 1; i < bezierPoints.length; i++) {
+ 
+  }
 }
 
 function supportLines(){
-  line(P0.x,P0.y,P1.x,P1.y);
-  line(P1.x,P1.y,P2.x,P2.y);
-  line(P2.x,P2.y,P3.x,P3.y);
+  for (i = 1; i < bezierPoints.length; i++)
+    line(bezierPoints[i-1].x, bezierPoints[i-1].y, bezierPoints[i].x, bezierPoints[i].y)
 }
 
 function drawBezier(){
@@ -60,10 +72,10 @@ function drawBezier(){
 }
 
 function drawPoints(){
-  circle(P0.x,P0.y,pd);
-  circle(P1.x,P1.y,pd);
-  circle(P2.x,P2.y,pd);
-  circle(P3.x,P3.y,pd);
+  for (i = 0; i < bezierPoints.length; i++) {
+    circle(bezierPoints[i].x, bezierPoints[i].y, 10)
+    print(bezierPoints.length)
+}
 }
 
 function letterH() {
@@ -87,7 +99,6 @@ function test() {
       if (keyIsDown(49)) {
         P0 = {x: mouseX, y: mouseY}
         circle(mouseX, mouseY)
-        print("good")
        }
       if (keyIsDown(50)) {
         P1 = {x: mouseX, y: mouseY}
@@ -106,6 +117,21 @@ function test() {
       }
       }
 
+function addpoint() {
+  if (keyIsPressed && time > 60) {
+    if (key === 'a' || key === 'A') {
+      let point = {x: mouseX, y: mouseY};
+      bezierPoints.push(point)
+      print(" added point " + bezierPoints.length)
+      circle(point.x, point.y, 10)
+      time = 0;      
+    }
+  }
+}
+
+function bezie() {
+
+}
 
 
 
