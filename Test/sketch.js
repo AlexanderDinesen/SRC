@@ -3,6 +3,12 @@ let P1 = {x: 100, y: 50, relativX: undefined, relativY: undefined};
 let P2 = {x: 300, y: 50, relativX: undefined, relativY: undefined};
 let P3 = {x: 350, y: 350, relativX: undefined, relativY: undefined};
 let P4 = {x: 350, y: 350, relativX: undefined, relativY: undefined};
+let P5 = {x: 350, y: 350, relativX: undefined, relativY: undefined};
+let P6 = {x: 350, y: 350, relativX: undefined, relativY: undefined};
+let P7 = {x: 350, y: 350, relativX: undefined, relativY: undefined};
+let P8 = {x: 350, y: 350, relativX: undefined, relativY: undefined};
+let P9 = {x: 350, y: 350, relativX: undefined, relativY: undefined};
+let P10 = {x: 350, y: 350, relativX: undefined, relativY: undefined};
 let A = {x: undefined, y: undefined};
 let B = {x: undefined, y: undefined};
 let C = {x: undefined, y: undefined};
@@ -15,7 +21,7 @@ let goat;
 let waittime = false;
 let time = 0;
 
-let bezierPoints = [P0,P1,P2,P3,P4]
+let bezierPoints = [P0,P1,P2,P3,P4,P5,P6,P7,P8,P9,P10]
 let drawbez = [];
 
 
@@ -36,7 +42,11 @@ function draw() {
   supportLines()
   test();
   addpoint();
-  time++
+  word();
+  time++;
+  if (time > 60) {
+    reset();
+  }
 }
 
 
@@ -74,43 +84,45 @@ function drawBezier(){
 function drawPoints(){
   for (i = 0; i < bezierPoints.length; i++) {
     circle(bezierPoints[i].x, bezierPoints[i].y, 10)
-    print(bezierPoints.length)
 }
 }
 
-function letterH() {
+
+function word() { // min forkortelse af navn skal stå samt splines som gør den flydende
   if(keyIsPressed) {
-		if ((key = 'h')) {
-      P0 = {x: 50, y: 350}
-      P1 = {x: 50, y: 350}
-      P2 = {x: 50, y: 350}
-      P3 = {x: 50, y: 350}
-
-      circle(P0.x, P0.y, 20)
-      circle(P1.x, P1.y, 20)
-      circle(P2.x, P2.y, 20)
-      circle(P3.x, P3.y, 20)
-
-    }      
+		if ((key = 'b')) {
+      P0 = {x: 106, y: 346}
+      P1 = {x: 124, y: 285}
+      P2 = {x: 138, y: 236}
+      P3 = {x: 182, y: 196}
     }
   }
+}
+
+
+
+
 
 function test() {
       if (keyIsDown(49)) {
         P0 = {x: mouseX, y: mouseY}
-        circle(mouseX, mouseY)
+        circle(mouseX, mouseY, 10)
+        print("p0 : " + mouseX + " , " + mouseY)
        }
       if (keyIsDown(50)) {
         P1 = {x: mouseX, y: mouseY}
-        circle(mouseX, mouseY)
+        circle(mouseX, mouseY, 10)
+        print("p1 : " + mouseX + " , " + mouseY)
       }
       if (keyIsDown(51)) {
         P2 = {x: mouseX, y: mouseY}
-        circle(mouseX, mouseY)
+        circle(mouseX, mouseY, 10)
+        print("p2 : " + mouseX + " , " + mouseY)
       }
       if (keyIsDown(52)) {
         P3 = {x: mouseX, y: mouseY}
-        circle(mouseX, mouseY) 
+        circle(mouseX, mouseY, 10)
+        print("p3 : " + mouseX + " , " + mouseY) 
       }
       if (keyIsDown(67)) {
         goat = true;
@@ -129,15 +141,7 @@ function addpoint() {
   }
 }
 
-function bezie() {
-
-}
-
 
 
 
 let k=0;
-
-
-
-
